@@ -527,9 +527,9 @@
   </div>
   <div class="container">
     <div class="row gy-4 factory-stats" data-aos="fade-up" data-aos-delay="100">
-      <div class="col-lg-4 col-md-4"><div class="factory-stat"><div class="stat-num"><span class="purecounter" data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="2"></span><span class="suffix">+</span></div><p>Years of Experience</p></div></div>
-      <div class="col-lg-4 col-md-4"><div class="factory-stat"><div class="stat-num"><span class="purecounter" data-purecounter-start="0" data-purecounter-end="50" data-purecounter-duration="2"></span><span class="suffix">M+</span></div><p>Caps Produced</p></div></div>
-      <div class="col-lg-4 col-md-4"><div class="factory-stat"><div class="stat-num"><span class="purecounter" data-purecounter-start="0" data-purecounter-end="200" data-purecounter-duration="2"></span><span class="suffix">+</span></div><p>Brands Served</p></div></div>
+      <div class="col-lg-4 col-md-4"><div class="factory-stat"><div class="stat-num" data-count="15"><span class="counter">0</span><span class="suffix">+</span></div><p>Years of Experience</p></div></div>
+      <div class="col-lg-4 col-md-4"><div class="factory-stat"><div class="stat-num" data-count="50"><span class="counter">0</span><span class="suffix">M+</span></div><p>Caps Produced</p></div></div>
+      <div class="col-lg-4 col-md-4"><div class="factory-stat"><div class="stat-num" data-count="200"><span class="counter">0</span><span class="suffix">+</span></div><p>Brands Served</p></div></div>
     </div>
     <div class="row gy-4 factory-gallery" data-aos="fade-up" data-aos-delay="200">
       <div class="col-lg-3 col-md-6"><div class="factory-img"><a href="assets/img/factory/1.webp" class="glightbox"><img src="assets/img/factory/1.webp" class="img-fluid" alt="Factory cutting workshop" width="270" height="203" loading="lazy"></a></div></div>
@@ -726,6 +726,56 @@
 <script src="https://unpkg.com/isotope-layout@3.0.6/dist/isotope.pkgd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
 <script src="assets/js/main.js"></script>
+
+<!-- 数字滚动动画脚本 -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // 获取所有需要滚动的计数器容器
+    const counters = document.querySelectorAll('.stat-num');
+    
+    // 如果页面中没有 .stat-num，则直接退出
+    if (!counters.length) return;
+
+    // 配置：数字变化速度（数值越大变化越快，推荐 150~300）
+    const SPEED = 200;
+
+    // 启动计数器动画的函数
+    function startCounter(counter) {
+      const target = parseInt(counter.getAttribute('data-count'));
+      const span = counter.querySelector('.counter');
+      if (!span) return;
+      
+      let current = 0;
+      const increment = Math.ceil(target / SPEED);
+      
+      const update = () => {
+        current += increment;
+        if (current < target) {
+          span.textContent = current;
+          requestAnimationFrame(update);
+        } else {
+          span.textContent = target;
+        }
+      };
+      
+      update();
+    }
+
+    // 使用 IntersectionObserver 实现滚动触发（元素进入可视区域时才启动）
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // 只启动一次，启动后停止观察
+          startCounter(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 }); // 当元素 30% 可见时触发
+
+    // 观察每个 .stat-num
+    counters.forEach(counter => observer.observe(counter));
+  });
+</script>
 
 </body>
 </html>
