@@ -1,5 +1,8 @@
 User-agent: *
 Allow: /
+Disallow: /assets/
+Disallow: /forms/
+Disallow: /starter-page.html
 
 User-agent: GPTBot
 Allow: /
@@ -15,3 +18,5 @@ Allow: /
 
 User-agent: ChatGPT-User
 Allow: /
+
+Sitemap: https://oemhats.com/sitemap.xml
