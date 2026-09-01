@@ -3,6 +3,7 @@ Allow: /
 Disallow: /assets/
 Disallow: /forms/
 Disallow: /starter-page.html
+Disallow: /*?
 
 User-agent: GPTBot
 Allow: /
