@@ -1341,7 +1341,24 @@
             window.addEventListener('scroll', handleScroll, { passive: true });
         });
     </script>
-
+    <!-- 防垃圾：2秒内提交静默拦截 -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // 自动匹配所有指向 Web3Forms 的表单
+      var form = document.querySelector('form[action*="web3forms"]');
+      if (!form) return;
+      
+      // 记录页面加载时间
+      var startTime = Date.now();
+      
+      form.addEventListener('submit', function(e) {
+        // 如果提交时间小于2秒（2000毫秒），直接静默拦截
+        if (Date.now() - startTime < 2000) {
+          e.preventDefault();
+        }
+      });
+    });
+    </script>
 </body>
 
 </html>
