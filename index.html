@@ -36,6 +36,34 @@
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css" as="style">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" as="style" media="print" onload="this.media='all'">
     <link rel="preload" href="assets/css/main.css" as="style">
+    <link rel="canonical" href="https://oemhats.com/">
+    
+    <!-- ===== 新增：Open Graph 社交分享标签 ===== -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="OEM Hats">
+    <meta property="og:title" content="OEM Hats - Custom Hat Manufacturer & Supplier | Low MOQ">
+    <meta property="og:description" content="Top-rated custom hat manufacturer in China. Low MOQ 50 pcs, 7-day sampling, 15-day delivery. Free digital mockup.">
+    <meta property="og:url" content="https://oemhats.com/">
+    <meta property="og:image" content="https://oemhats.com/assets/img/banner/oemcaps-banner.jpg">
+
+    <!-- ===== 新增：Schema.org 企业结构化数据（AI 搜索引擎最爱） ===== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "OEM Hats",
+      "description": "Factory-direct custom hat manufacturer with low MOQ.",
+      "url": "https://oemhats.com/",
+      "telephone": "+86 156 0327 0692",
+      "email": "verna@bdbrim.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Baoding",
+        "addressRegion": "Hebei",
+        "addressCountry": "CN"
+      }
+    }
+    </script>
 
     <!-- Vendor CSS Files -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
@@ -48,11 +76,11 @@
 
     <!-- OEM Hats Custom Styles -->
     <style>
-        /* ---------- OEM Hats brand tone ---------- */
+        /* ---------- OEM Hats brand tone (独立橙色，与其他站区分) ---------- */
         :root {
-            --accent-color: #1a73e8;
-            --nav-hover-color: #1a73e8;
-            --nav-dropdown-hover-color: #1a73e8;
+            --accent-color: #e67e22;
+            --nav-hover-color: #e67e22;
+            --nav-dropdown-hover-color: #e67e22;
         }
         .header .logo {
             margin-left: 0;
@@ -550,11 +578,11 @@
             font-size: 14px;
         }
         .contact-form-card .form-control:focus {
-            border-color: #0EA5E9;
-            box-shadow: 0 0 0 .2rem rgba(14, 165, 233, .15);
+            border-color: #e67e22;
+            box-shadow: 0 0 0 .2rem rgba(230, 126, 34, .15);
         }
         .btn-send-inquiry {
-            background: #0EA5E9;
+            background: #e67e22;
             color: #fff;
             font-weight: 600;
             font-size: 15px;
@@ -566,7 +594,7 @@
             transition: .3s;
         }
         .btn-send-inquiry:hover {
-            background: #0284c7;
+            background: #cf6d1c;
             color: #fff;
         }
         .contact-info-card {
@@ -586,7 +614,7 @@
             gap: 8px;
         }
         .contact-info-title i {
-            color: #0EA5E9;
+            color: #e67e22;
         }
         .contact-info-item {
             display: flex;
@@ -598,8 +626,8 @@
             height: 46px;
             flex-shrink: 0;
             border-radius: 12px;
-            background: rgba(14, 165, 233, .12);
-            color: #0EA5E9;
+            background: rgba(230, 126, 34, .12);
+            color: #e67e22;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -621,7 +649,7 @@
             color: var(--heading-color);
         }
         .contact-info-item a:hover {
-            color: #0EA5E9;
+            color: #e67e22;
         }
         .btn-wa {
             background: #25d366;
